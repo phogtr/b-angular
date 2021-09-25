@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 export interface IPost {
-  userId: number;
   id: number;
   title: string;
   body: string;
@@ -13,11 +12,22 @@ export interface IPost {
   providedIn: 'root',
 })
 export class PostService {
-  private url = 'http://localhost:3000/posts';
+  private baseUrl = 'http://localhost:3000/posts';
 
   constructor(private http: HttpClient) {}
 
   getPosts(): Observable<IPost[]> {
-    return this.http.get<IPost[]>(this.url);
+    return this.http.get<IPost[]>(this.baseUrl);
+  }
+
+  deletePost(post: IPost): Observable<IPost[]> {
+    const url = `${this.baseUrl}/${post.id}`;
+    return this.http.delete<IPost[]>(url);
+  }
+
+  editPost(post: IPost): void {
+    const url = `${this.baseUrl}/${post.id}`;
+    console.log(url);
+    // return this.http.put<IPost[]>(url,);
   }
 }
