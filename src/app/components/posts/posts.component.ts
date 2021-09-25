@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { EventEmitterService } from '../../services/event-emitter/event-emitter.service';
 
-import { IPost, PostService } from '../../services/post.service';
+import { IPost, PostService } from '../../services/post/post.service';
 
 @Component({
   selector: 'app-posts',
@@ -10,10 +13,29 @@ import { IPost, PostService } from '../../services/post.service';
 export class PostsComponent implements OnInit {
   posts: IPost[] = [];
 
-  constructor(private postService: PostService) {}
+  createdPost: Subscription;
+
+  constructor(
+    private postService: PostService,
+    private eventEmitterService: EventEmitterService,
+    private router: Router
+  ) {
+    this.createdPost = this.eventEmitterService.createdPost$.subscribe(
+      ($event) => {
+        this.createPostHandler($event);
+      }
+    );
+  }
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe((posts) => (this.posts = posts));
+  }
+
+  createPostHandler(post: IPost) {
+    this.postService.createPost(post).subscribe((post) => {
+      this.posts.push(post);
+      this.router.navigate(['/']);
+    });
   }
 
   onDeleteHandler(post: IPost): void {

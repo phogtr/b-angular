@@ -20,9 +20,13 @@ export class PostService {
     return this.http.get<IPost[]>(this.baseUrl);
   }
 
-  deletePost(post: IPost): Observable<IPost[]> {
+  createPost(post: IPost): Observable<IPost> {
+    return this.http.post<IPost>(this.baseUrl, post);
+  }
+
+  deletePost(post: IPost): Observable<IPost> {
     const url = `${this.baseUrl}/${post.id}`;
-    return this.http.delete<IPost[]>(url);
+    return this.http.delete<IPost>(url);
   }
 
   editPost(post: IPost): void {
