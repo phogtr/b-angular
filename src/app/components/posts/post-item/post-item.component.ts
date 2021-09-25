@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IPost } from '../../services/post/post.service';
+import { IPost } from '../../../services/post/post.service';
 
 @Component({
   selector: 'app-post-item',
