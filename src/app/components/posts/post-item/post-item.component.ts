@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { IPost } from '../../../services/post/post.service';
 
 @Component({
@@ -8,13 +9,12 @@ import { IPost } from '../../../services/post/post.service';
 })
 export class PostItemComponent {
   @Input() post!: IPost;
-  @Output() onEditHandler: EventEmitter<IPost> = new EventEmitter();
   @Output() onDeleteHandler: EventEmitter<IPost> = new EventEmitter();
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  onClickEdit(post: IPost) {
-    this.onEditHandler.emit(post);
+  goToEditForm(id: number) {
+    this.router.navigate([`/post/edit/${id}`]);
   }
 
   onClickDelete(post: IPost) {

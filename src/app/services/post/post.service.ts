@@ -34,9 +34,8 @@ export class PostService {
     return this.http.delete<IPost>(url);
   }
 
-  editPost(post: IPost): void {
+  editPost(post: IPost): Observable<IPost> {
     const url = `${this.baseUrl}/${post.id}`;
-    console.log(url);
-    // return this.http.put<IPost[]>(url,);
+    return this.http.put<IPost>(url, post);
   }
 }

@@ -4,6 +4,6 @@
     <p>{{post.body}}</p>
     <a [routerLink]="['/post', post.id]">Read</a>
   </div>
-  <button (click)="onClickEdit(post)">Edit</button>
+  <button (click)="goToEditForm(post.id)">Edit</button>
   <button (click)="onClickDelete(post)">Delete</button>
 </li>

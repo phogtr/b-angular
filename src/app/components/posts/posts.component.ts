@@ -14,6 +14,7 @@ export class PostsComponent implements OnInit {
   posts: IPost[] = [];
 
   createdPost: Subscription;
+  editedPost: Subscription;
 
   constructor(
     private postService: PostService,
@@ -25,13 +26,18 @@ export class PostsComponent implements OnInit {
         this.createPostHandler($event);
       }
     );
+    this.editedPost = this.eventEmitterService.editedPost$.subscribe(
+      ($event) => {
+        this.editPostHandler($event);
+      }
+    );
   }
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe((posts) => (this.posts = posts));
   }
 
-  createPostHandler(post: IPost) {
+  createPostHandler(post: IPost): void {
     this.postService.createPost(post).subscribe((post) => {
       this.posts.push(post);
       this.router.navigate(['/']);
@@ -46,7 +52,9 @@ export class PostsComponent implements OnInit {
       );
   }
 
-  onEditHandler(post: IPost): void {
-    this.postService.editPost(post);
+  editPostHandler(post: IPost): void {
+    this.postService
+      .editPost(post)
+      .subscribe(() => this.router.navigate(['/']));
   }
 }

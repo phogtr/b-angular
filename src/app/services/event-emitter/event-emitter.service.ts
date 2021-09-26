@@ -7,6 +7,7 @@ import { IPost } from '../post/post.service';
 })
 export class EventEmitterService {
   createdPost$ = new Subject<IPost>();
+  editedPost$ = new Subject<IPost>();
 
   constructor() {}
 }
