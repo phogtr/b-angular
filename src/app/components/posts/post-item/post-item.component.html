@@ -1,7 +1,8 @@
 <li>
   <div>
-    <h3>{{post.title}}</h3>
+    <h2>{{post.title}}</h2>
     <p>{{post.body}}</p>
+    <a [routerLink]="['/post', post.id]">Read</a>
   </div>
   <button (click)="onClickEdit(post)">Edit</button>
   <button (click)="onClickDelete(post)">Delete</button>

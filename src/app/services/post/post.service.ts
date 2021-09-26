@@ -20,6 +20,11 @@ export class PostService {
     return this.http.get<IPost[]>(this.baseUrl);
   }
 
+  getSinglePost(id: string): Observable<IPost> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<IPost>(url);
+  }
+
   createPost(post: IPost): Observable<IPost> {
     return this.http.post<IPost>(this.baseUrl, post);
   }

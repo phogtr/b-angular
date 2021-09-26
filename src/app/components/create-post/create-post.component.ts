@@ -13,7 +13,7 @@ export class CreatePostComponent {
 
   createPostForm = new FormGroup({
     title: new FormControl(''),
-    content: new FormControl(''),
+    body: new FormControl(''),
   });
 
   onCreatePostSubmit() {
