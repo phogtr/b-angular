@@ -8,4 +8,10 @@
   <li>
     <a routerLink="/create-post">Create Post</a>
   </li>
+  <li>
+    <a routerLink="/login">Login</a>
+  </li>
+  <li>
+    <a *ngIf="authService.isLoggedIn" routerLink="/auth">Auth</a>
+  </li>
 </ul>
