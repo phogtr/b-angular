@@ -6,10 +6,11 @@
     <a routerLink="/about">About</a>
   </li>
   <li>
-    <a routerLink="/create-post">Create Post</a>
+    <a *ngIf="!authService.isLoggedIn; else elseBlock" routerLink="/login">Login</a>
+    <ng-template #elseBlock><a routerLink="/login">Logout</a></ng-template>
   </li>
   <li>
-    <a routerLink="/login">Login</a>
+    <a *ngIf="authService.isLoggedIn" routerLink="/create-post">Create Post</a>
   </li>
   <li>
     <a *ngIf="authService.isLoggedIn" routerLink="/auth">Auth</a>

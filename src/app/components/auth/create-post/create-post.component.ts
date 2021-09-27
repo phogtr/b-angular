@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { EventEmitterService } from '../../services/event-emitter/event-emitter.service';
-import { IPost } from '../../services/post/post.service';
+import { EventEmitterService } from '../../../services/event-emitter/event-emitter.service';
+import { IPost } from '../../../services/post/post.service';
 
 @Component({
   selector: 'app-create-post',

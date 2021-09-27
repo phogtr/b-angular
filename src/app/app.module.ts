@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
 import { PostsModule } from './components/posts/posts.module';
 import { AuthModule } from './components/auth/auth.module';
 
@@ -10,7 +9,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
-import { CreatePostComponent } from './components/create-post/create-post.component';
 import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
@@ -19,14 +17,12 @@ import { LoginComponent } from './components/login/login.component';
     NavbarComponent,
     AboutComponent,
     HomeComponent,
-    CreatePostComponent,
     LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
     PostsModule,
     AuthModule,
   ],
