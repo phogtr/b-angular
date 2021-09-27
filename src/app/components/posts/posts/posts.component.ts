@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { EventEmitterService } from '../../services/event-emitter/event-emitter.service';
+import { EventEmitterService } from '../../../services/event-emitter/event-emitter.service';
 
-import { IPost, PostService } from '../../services/post/post.service';
+import { IPost, PostService } from '../../../services/post/post.service';
 
 @Component({
   selector: 'app-posts',
