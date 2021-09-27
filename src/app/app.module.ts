@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PostsModule } from './components/posts/posts.module';
+import { AuthModule } from './components/auth/auth.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,6 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
     NavbarComponent,
     AboutComponent,
     HomeComponent,
-
     CreatePostComponent,
   ],
   imports: [
@@ -26,6 +26,7 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
     HttpClientModule,
     ReactiveFormsModule,
     PostsModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
