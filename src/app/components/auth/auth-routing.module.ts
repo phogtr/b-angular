@@ -4,6 +4,7 @@ import { AuthGuard } from './auth.guard';
 import { AuthComponent } from './auth/auth.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { AuthChildComponent } from './auth-child/auth-child.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 const routes: Routes = [
   {
@@ -23,16 +24,21 @@ const routes: Routes = [
       },
     ],
   },
-  // {
-  //   path: 'auth/auth-child',
-  //   component: AuthChildComponent,
-  //   canActivate: [AuthGuard],
-  // },
   {
     path: 'create-post',
     component: CreatePostComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'post/edit/:id',
+    component: EditPostComponent,
+    canActivate: [AuthGuard],
+  },
+  // {
+  //   path: 'auth/auth-child',
+  //   component: AuthChildComponent,
+  //   canActivate: [AuthGuard],
+  // },
 ];
 
 @NgModule({
